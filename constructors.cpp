@@ -198,6 +198,10 @@ class Number{
     Number(int num){
         a=num;
     }
+    Number(Number &obj){
+        cout<<"Copy contructor called!!\n";
+        a=obj.a;
+    }
     void display(){
         cout<<"The number for this object is "<< a <<endl;
     }
@@ -207,6 +211,9 @@ int main(){
     x.display();
     y.display();
     z.display();
+
+    Number z1(x);
+    z1.display();
     
     return 0;
 }
