@@ -1,20 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
+void replacePi(string s){
+    if(s.size()==0) return;
 
-void towerOfHanoi(int n, char src, char aux , char dest){
-    if(n==1){
-        cout<<"Moved disc - "<<n<<" from "<< src <<" to "<<dest<<endl;
-        return;
+    if(s[0]=='p' && s[1]=='i'){
+        cout<<"3.14";
+        s.substr(2);
     }
-    towerOfHanoi(n-1,src,dest,aux);
-    cout<<"Moved disc - "<<n<<" from "<< src <<" to "<<dest<<endl;
-    towerOfHanoi(n-1,aux,src,dest);
+    else{
+        cout<<s.substr(1);
+    }
 }
 int main(){
-    int n;
-    cout<<"Enter the number of discs: ";
-    cin>>n;
+    string st;
+    cin>>st;
 
-    towerOfHanoi(n,'A','B','C');
+    replacePi(st);
+    
     return 0;
 }
