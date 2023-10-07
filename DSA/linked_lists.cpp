@@ -142,66 +142,66 @@
 // }
 
 
-#include<bits/stdc++.h>
-using namespace std;
-class Node{
-    public:
-    int data;
-    Node* head;
-    Node* next;
+// #include<bits/stdc++.h>
+// using namespace std;
+// class Node{
+//     public:
+//     int data;
+//     Node* head;
+//     Node* next;
 
-    Node(int data){
-        this->data=data;
-        this->next=NULL;
-    }
-};
+//     Node(int data){
+//         this->data=data;
+//         this->next=NULL;
+//     }
+// };
 
-void InsertAtPosition(Node* &head,int position,int d){
-    Node* temp=head;
-    int cnt=1;
+// void InsertAtPosition(Node* &head,int position,int d){
+//     Node* temp=head;
+//     int cnt=1;
 
-    while (cnt<position-1)
-    {
-        temp=temp->next;
-        cnt++;
-    }
-    Node* nodetoinsert=new Node(d);
+//     while (cnt<position-1)
+//     {
+//         temp=temp->next;
+//         cnt++;
+//     }
+//     Node* nodetoinsert=new Node(d);
 
-    nodetoinsert->next=temp->next;
-    temp->next=nodetoinsert;
-}
+//     nodetoinsert->next=temp->next;
+//     temp->next=nodetoinsert;
+// }
 
-void InsertHead(Node* &head,int d){
-    Node* temp=new Node(d);
-    temp->next=head;
-    head=temp;
-}
-void InsertTail(Node* &tail,int d){
-    Node* temp=new Node(d);
-    tail->next=temp;
-    tail=temp;
+// void InsertHead(Node* &head,int d){
+//     Node* temp=new Node(d);
+//     temp->next=head;
+//     head=temp;
+// }
+// void InsertTail(Node* &tail,int d){
+//     Node* temp=new Node(d);
+//     tail->next=temp;
+//     tail=temp;
 
-}
-void Display(Node* &head){
-    Node* temp=head;
-    while(temp!=NULL){
-        cout<<temp->data<<"->";
-        temp=temp->next;
-    }
-    cout<<endl;
-}
+// }
+// void Display(Node* &head){
+//     Node* temp=head;
+//     while(temp!=NULL){
+//         cout<<temp->data<<"->";
+//         temp=temp->next;
+//     }
+//     cout<<endl;
+// }
 
-int main(){
-    Node* n1=new Node(10);
-    Node* head=n1;
-    Node* tail=n1;
-    Display(head);
-    InsertHead(head,12);
-    Display(head);
-    InsertTail(tail,16);
-    Display(head);
-    return 0;
-}
+// int main(){
+//     Node* n1=new Node(10);
+//     Node* head=n1;
+//     Node* tail=n1;
+//     Display(head);
+//     InsertHead(head,12);
+//     Display(head);
+//     InsertTail(tail,16);
+//     Display(head);
+//     return 0;
+// }
 
 
 
