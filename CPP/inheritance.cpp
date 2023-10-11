@@ -98,59 +98,109 @@
 // }
 
 
+// #include<bits/stdc++.h>
+// using namespace std;
+// class Student{
+//     protected:
+//     int roll_number;
+//     public:
+//     void set_roll_number(int);
+//     void get_roll_number(void);
+// };
+// void Student::set_roll_number(int r){
+//     roll_number=r;
+// }
+// void Student::get_roll_number(){
+//     cout<<"The roll number is "<<roll_number<<endl;
+// }
+// class Exam : public Student{
+//     protected:
+//     float maths;
+//     float physics;
+//     public:
+//     void set_marks(float,float);
+//     void get_marks(void);
+// };
+
+// void Exam :: set_marks(float a, float b){
+//     maths = a;
+//     physics= b;
+// }
+// void Exam :: get_marks(){
+//    cout<<"Marks of Maths are "<<maths<<endl;
+//    cout<<"Marks of Physics are "<<physics<<endl;
+// }
+
+// class Result : public Exam{
+//     float percentage;
+//     public:
+//     void display(){
+//         get_roll_number();
+//         get_marks();
+//         cout<<"Your percentage is "<<(maths+physics)/2<<"%"<<endl;
+//     }
+// };
+
+// int main(){
+//     /*
+//     Notes:
+//         1. If we are inheriting B from A and C from B:[ A-->B-->C ]
+//         2. ABC is called Inheritance Path
+        
+//     */
+//     Result Abhinav;
+//     Abhinav.set_roll_number(420);
+//     Abhinav.set_marks(94.0,90.0);
+//     Abhinav.display();
+//     return 0;
+// }
+
+
+
+
+//Multilevel Inheritance
+
 #include<bits/stdc++.h>
 using namespace std;
-class Student{
+
+/*Syntax-
+class DerivedC : visibility_mode base1, visibility_mode base2{
+    Class body of class "DerivedC"
+}
+*/
+class Base1{
     protected:
-    int roll_number;
+    int base1int;
     public:
-    void set_roll_number(int);
-    void get_roll_number(void);
+    void set_base1int(int a){
+        base1int=a;
+    }
 };
-void Student::set_roll_number(int r){
-    roll_number=r;
-}
-void Student::get_roll_number(){
-    cout<<"The roll number is "<<roll_number<<endl;
-}
-class Exam : public Student{
+class Base2{
     protected:
-    float maths;
-    float physics;
+    int base2int;
     public:
-    void set_marks(float,float);
-    void get_marks(void);
+    void set_base2int(int a){
+        base2int=a;
+    }
 };
 
-void Exam :: set_marks(float a, float b){
-    maths = a;
-    physics= b;
-}
-void Exam :: get_marks(){
-   cout<<"Marks of Maths are "<<maths<<endl;
-   cout<<"Marks of Physics are "<<physics<<endl;
-}
-
-class Result : public Exam{
-    float percentage;
+class Derived : public Base1, public Base2{
     public:
-    void display(){
-        get_roll_number();
-        get_marks();
-        cout<<"Your percentage is "<<(maths+physics)/2<<"%"<<endl;
+    void show(){
+        cout<<"The value of Base1 is "<<base1int<<endl;
+        cout<<"The value of Base2 is "<<base2int<<endl;
+        cout<<"The sum of these values is "<<base1int+base2int<<endl;
+
     }
 };
 
 int main(){
-    /*
-    Notes:
-        1. If we are inheriting B from A and C from B:[ A-->B-->C ]
-        2. ABC is called Inheritance Path
-        
-    */
-    Result Abhinav;
-    Abhinav.set_roll_number(420);
-    Abhinav.set_marks(94.0,90.0);
-    Abhinav.display();
+
+    Derived harry;
+    harry.set_base1int(25);
+    harry.set_base2int(5);
+    harry.show();
+    
     return 0;
 }
