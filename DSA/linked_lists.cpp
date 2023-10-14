@@ -249,28 +249,28 @@
 // }
 
 // void InsertAtPosition(Node* &tail,Node* &head,int p,int d){
-//     if (p==1)
-//     {
-//         InsertAtHead(head,d);
-//         return;
-//     }
+    // if (p==1)
+    // {
+    //     InsertAtHead(head,d);
+    //     return;
+    // }
     
-//     Node* temp=head;
-//     int cnt=1;
-//     while (cnt<p-1)
-//     {
-//         temp=temp->next;
-//         cnt++;
-//     }
-//     if (temp->next==NULL)
-//     {
-//         InsertAtTail(tail,d);
-//         return;
-//     }
+    // Node* temp=head;
+    // int cnt=1;
+    // while (cnt<p-1)
+    // {
+    //     temp=temp->next;
+    //     cnt++;
+    // }
+    // if (temp->next==NULL)
+    // {
+    //     InsertAtTail(tail,d);
+    //     return;
+    // }
     
-//     Node* nodetoinsert=new Node(d);
-//     nodetoinsert->next=temp->next;
-//     temp->next=nodetoinsert;
+    // Node* nodetoinsert=new Node(d);
+    // nodetoinsert->next=temp->next;
+    // temp->next=nodetoinsert;
 
     
 
@@ -343,6 +343,104 @@
 
 
 
+//DOUBLY LL
+
+#include<bits/stdc++.h>
+using namespace std;
+class Node{
+    public:
+    int data;
+    Node* prev;
+    Node* next;
+
+    Node(int data){
+        this->data=data;
+        this->prev=NULL;
+        this->next=NULL;
+    }
+};
+
+void print(Node* head){
+    Node* temp = head;
+    while (temp!=NULL)
+    {
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    cout<<endl;
+    
+}
+int getLength(Node* head){
+    int len=0;
+    Node* temp = head;
+    while (temp!=NULL)
+    {
+        len++;
+        temp=temp->next ;
+    }
+    return len;
+}
+
+void InsertAtHead(Node* &head,int d){
+    Node* temp=new Node(d);
+    temp->next=head;
+    head->prev=temp;
+    head=temp;
+}
+void InsertAtTail(Node* &tail,int d){
+    Node* temp=new Node(d);
+     tail->next=temp;
+     temp->prev=tail;
+     tail=temp;
+}
+void InsertAtPosition(Node* &tail,Node* &head,int p, int d){
+        if (p==1)
+    {
+        InsertAtHead(head,d);
+        return;
+    }
+    
+    Node* temp=head;
+    int cnt=1;
+    while (cnt<p-1)
+    {
+        temp=temp->next;
+        cnt++;
+    }
+    if (temp->next==NULL)
+    {
+        InsertAtTail(tail,d);
+        return;
+    }
+    
+    Node* nodetoinsert=new Node(d);
+    nodetoinsert->next=temp->next;
+    temp->next=nodetoinsert;
+  
+
+}
+int main(){
+    Node* node1=new Node(10);
+    Node* head=node1;
+    Node* tail=node1;
+    print(head);
+    InsertAtHead(head,11);
+    print(head);
+    InsertAtHead(head,12);
+    print(head);
+    InsertAtHead(head,13);
+    print(head);
+    InsertAtTail(tail,15);
+    print(head);
+    InsertAtTail(tail,18);
+    print(head);
+
+
+
+    cout<<"Length of Doubly LL is "<<getLength(head)<<endl;
+    
+    return 0;
+}
 
 
 
