@@ -1,9 +1,1 @@
- // cout<<"Enter position: ";
-    // cin>>p;
-    // cout<<"Enter number: ";
-    // cin>>num;
-
-    // for (int i = ; i < count; i++)
-    // {
-    //     /* code */
-    // }
+1 3 7 -1 -1 11 -1 -1 5 17 -1 -1 -1
