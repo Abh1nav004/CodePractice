@@ -208,3 +208,80 @@
 // }
 
 
+// #include <iostream>
+// #include <cstring>
+// class CustomString {private:    char str[101];public:    CustomString(const char* s) {        std::strncpy(str, s, sizeof(str) - 1);        str[sizeof(str) - 1] = '\0';    }    void invertCase() {        for (int i = 0; str[i]; i++) {            if (std::islower(str[i])) {                str[i] = std::toupper(str[i]);            } else if (std::isupper(str[i])) {                str[i] = std::tolower(str[i]);            }        }    }    friend std::ostream& operator<<(std::ostream& os, const CustomString& cs) {        return os << cs.str;    }};int main() {    char input[101];    std::cin.getline(input, sizeof(input));    CustomString customStr(input);    std::cout << "Original String: " << customStr << std::endl;        !customStr; // Invert the case using the ! operator 
+//        std::cout << "Inverted String: " << customStr << std::endl;    return 0;}
+
+
+#include <iostream>
+#include <vector>
+#include <cctype>
+
+using namespace std;
+
+bool isVowel(char ch) {
+    ch = tolower(ch);
+    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+}
+
+vector<char> merge(const vector<char>& left, const vector<char>& right) {
+    vector<char> merged;
+    int i = 0, j = 0;
+    while (i < left.size() && j < right.size()) {
+        if (isVowel(left[i]) && !isVowel(right[j])) {
+            merged.push_back(left[i]);
+            i++;
+        } else if (!isVowel(left[i]) && isVowel(right[j])) {
+            merged.push_back(right[j]);
+            j++;
+        } else {
+            merged.push_back(left[i]);
+            i++;
+        }
+    }
+    while (i < left.size()) {
+        merged.push_back(left[i]);
+        i++;
+    }
+    while (j < right.size()) {
+        merged.push_back(right[j]);
+        j++;
+    }
+    return merged;
+}
+
+vector<char> mergeSort(const vector<char>& arr) {
+    int n = arr.size();
+    if (n <= 1) {
+        return arr;
+    }
+
+    int mid = n / 2;
+    vector<char> left(arr.begin(), arr.begin() + mid);
+    vector<char> right(arr.begin() + mid, arr.end());
+
+    left = mergeSort(left);
+    right = mergeSort(right);
+
+    return merge(left, right);
+}
+
+int main() {
+    int n;
+    cin >> n;
+    vector<char> characters(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> characters[i];
+    }
+
+    vector<char> sortedCharacters = mergeSort(characters);
+
+    for (char ch : sortedCharacters) {
+        cout << ch << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
