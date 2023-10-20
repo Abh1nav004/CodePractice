@@ -216,72 +216,176 @@
 
 #include <iostream>
 #include <vector>
-#include <cctype>
+// #include <cctype>
 
-using namespace std;
+// using namespace std;
 
-bool isVowel(char ch) {
-    ch = tolower(ch);
-    return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
-}
+// bool isVowel(char ch) {
+//     ch = tolower(ch);
+//     return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+// }
 
-vector<char> merge(const vector<char>& left, const vector<char>& right) {
-    vector<char> merged;
-    int i = 0, j = 0;
-    while (i < left.size() && j < right.size()) {
-        if (isVowel(left[i]) && !isVowel(right[j])) {
-            merged.push_back(left[i]);
-            i++;
-        } else if (!isVowel(left[i]) && isVowel(right[j])) {
-            merged.push_back(right[j]);
-            j++;
-        } else {
-            merged.push_back(left[i]);
-            i++;
-        }
+// vector<char> merge(const vector<char>& left, const vector<char>& right) {
+//     vector<char> merged;
+//     int i = 0, j = 0;
+//     while (i < left.size() && j < right.size()) {
+//         if (isVowel(left[i]) && !isVowel(right[j])) {
+//             merged.push_back(left[i]);
+//             i++;
+//         } else if (!isVowel(left[i]) && isVowel(right[j])) {
+//             merged.push_back(right[j]);
+//             j++;
+//         } else {
+//             merged.push_back(left[i]);
+//             i++;
+//         }
+//     }
+//     while (i < left.size()) {
+//         merged.push_back(left[i]);
+//         i++;
+//     }
+//     while (j < right.size()) {
+//         merged.push_back(right[j]);
+//         j++;
+//     }
+//     return merged;
+// }
+
+// vector<char> mergeSort(const vector<char>& arr) {
+//     int n = arr.size();
+//     if (n <= 1) {
+//         return arr;
+//     }
+
+//     int mid = n / 2;
+//     vector<char> left(arr.begin(), arr.begin() + mid);
+//     vector<char> right(arr.begin() + mid, arr.end());
+
+//     left = mergeSort(left);
+//     right = mergeSort(right);
+
+//     return merge(left, right);
+// }
+
+// int main() {
+//     int n;
+//     cin >> n;
+//     vector<char> characters(n);
+
+//     for (int i = 0; i < n; i++) {
+//         cin >> characters[i];
+//     }
+
+//     vector<char> sortedCharacters = mergeSort(characters);
+
+//     for (char ch : sortedCharacters) {
+//         cout << ch << " ";
+//     }
+//     cout << endl;
+
+//     return 0;
+// }
+
+
+// #include <iostream>#include <vector>using namespace std;vector<char> merge(const vector<char>& left, const vector<char>& right) {    vector<char> merged;    int i = 0, j = 0;    while (i < left.size() && j < right.size()) {        if (left[i] >= right[j]) {            merged.push_back(left[i]);            i++;        } else {            merged.push_back(right[j]);            j++;        }    }    while (i < left.size()) {        merged.push_back(left[i]);        i++;    }    while (j < right.size()) {        merged.push_back(right[j]);        j++;    }    return merged;}vector<char> mergeSort(const vector<char>& arr) {    int n = arr.size();    if (n <= 1) {        return arr;    }    int mid = n / 2;    vector<char> left(arr.begin(), arr.begin() + mid);    vector<char> right(arr.begin() + mid, arr.end());    left = mergeSort(left);    right = mergeSort(right);    return merge(left, right);}int main() {    int n;    cin >> n;    vector<char> runes(n);    for (int i = 0; i < n; i++) {        cin >> runes[i];    }    vector<char> sortedRunes = mergeSort(runes);    for (char rune : sortedRunes) {        cout << rune << " ";    }    cout << endl;    return 0;}
+
+
+// #include <iostream>
+
+// struct Node {
+//     int value;
+//     Node* left;
+//     Node* right;
+
+//     Node(int val) : value(val), left(nullptr), right(nullptr) {}
+// };
+
+// int calculatePortfolioValue(Node* root) {
+//     if (root == nullptr) {
+//         return 0;
+//     }
+
+//     int leftSum = calculatePortfolioValue(root->left);
+//     int rightSum = calculatePortfolioValue(root->right);
+
+//     return root->value + leftSum + rightSum;
+// }
+
+// int main() {
+//     int N;
+//     std::cin >> N;
+
+//     Node* root = nullptr;
+
+//     for (int i = 0; i < N; i++) {
+//         int value;
+//         std::cin >> value;
+//         root = insert(root, value);
+//     }
+
+//     int totalValue = calculatePortfolioValue(root);
+//     std::cout << totalValue << std::endl;
+
+//     return 0;
+// }
+
+
+#include <iostream>
+#include <vector>
+
+struct TreeNode {
+    int val;
+    TreeNode* left;
+    TreeNode* right;
+    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+void postorderTraversal(TreeNode* root, std::vector<int>& result) {
+    if (root) {
+        postorderTraversal(root->left, result);
+        postorderTraversal(root->right, result);
+        result.push_back(root->val);
     }
-    while (i < left.size()) {
-        merged.push_back(left[i]);
-        i++;
-    }
-    while (j < right.size()) {
-        merged.push_back(right[j]);
-        j++;
-    }
-    return merged;
-}
-
-vector<char> mergeSort(const vector<char>& arr) {
-    int n = arr.size();
-    if (n <= 1) {
-        return arr;
-    }
-
-    int mid = n / 2;
-    vector<char> left(arr.begin(), arr.begin() + mid);
-    vector<char> right(arr.begin() + mid, arr.end());
-
-    left = mergeSort(left);
-    right = mergeSort(right);
-
-    return merge(left, right);
 }
 
 int main() {
     int n;
-    cin >> n;
-    vector<char> characters(n);
-
-    for (int i = 0; i < n; i++) {
-        cin >> characters[i];
+    std::cin >> n;
+    std::vector<int> arr(n);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> arr[i];
     }
 
-    vector<char> sortedCharacters = mergeSort(characters);
+    TreeNode* root = NULL;
+    std::vector<TreeNode*> nodes(n);
 
-    for (char ch : sortedCharacters) {
-        cout << ch << " ";
+    // Construct the binary tree
+    for (int i = 0; i < n; ++i) {
+        if (arr[i] != -1) {
+            nodes[i] = new TreeNode(arr[i]);
+            if (i > 0) {
+                int parent = (i - 1) / 2;
+                if (i % 2 == 1) {
+                    nodes[parent]->left = nodes[i];
+                } else {
+                    nodes[parent]->right = nodes[i];
+                }
+            } else {
+                root = nodes[i];
+            }
+        }
     }
-    cout << endl;
+
+    std::vector<int> postorder;
+    postorderTraversal(root, postorder);
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << postorder[i];
+        if (i < n - 1) {
+            std::cout << " ";
+        }
+    }
+    std::cout << std::endl;
 
     return 0;
 }
