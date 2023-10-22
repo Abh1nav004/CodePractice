@@ -553,3 +553,175 @@
 //     cout << "The program executed" << endl;
 //     return 0;
 // }
+
+// #include <iostream>
+// using namespace std;
+
+// class BaseP {
+// protected:
+//     int x;
+// public:
+//     BaseP() : x(7) {}
+// };
+
+// class DerivedQ : private BaseP {
+// public:
+//     int y;
+//     DerivedQ() : y(20) {}
+// };
+
+// int main() {
+//     BaseP* ptr = new DerivedQ();
+//     cout << ptr->x << ", " << ptr->y;
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+// class Animal {
+// protected:
+//     int legs;
+// public:
+//     Animal() : legs(4) {}
+//     int getLegs() { return legs; }
+// };
+
+// class Bird {
+// protected:
+//     int wings;
+// public:
+//     Bird() : wings(2) {}
+//     int getWings() { return wings; }
+// };
+
+// class Bat : public Animal, public Bird {
+// public:
+//     int totalLimbs() { return getLegs() + getWings(); }
+// };
+
+// int main() {
+//     Bat obj;
+//     cout << obj.totalLimbs();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+// class BaseClass{
+//     int x;
+//     public:
+//     void setx(int n){
+//     x = n;
+//     }
+//     void showx(){
+//         cout << x ;
+//     }
+// };
+
+// class DerivedClass : private BaseClass{
+//     int y;
+//     public:
+//     void setxy(int n, int m){
+//         setx(n);
+//         y = m;
+//     }
+
+//     void showxy(){
+//         showx();
+//         cout << y << '\n';
+//     }
+// };
+
+// int main(){
+//     DerivedClass ob;
+//     ob.setxy(10, 20);
+//     ob.showxy( );
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+// class Fruit {
+// protected:
+//     int quantity;
+// public:
+//     Fruit() : quantity(5) {}
+//     int getQuantity() { return quantity; }
+// };
+
+// class Apple : public Fruit {
+// public:
+//     int getQuantity() { return quantity + 10; }
+// };
+
+// class Orange : public Fruit {
+// public:
+//     int getQuantity() { return quantity * 2; }
+// };
+
+// int main() {
+//     Apple apple;
+//     Orange orange;
+//     cout << apple.getQuantity() << orange.getQuantity();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class A {
+// public:
+//     A(int n) {
+//         cout << n;
+//     }
+// };
+
+// class B : public A {
+// public:
+//     B(int n, double d) : A(n) {
+//         cout << d;
+//     }
+// };
+
+// class C : public B {
+// public:
+//     C(int n, double d, char ch) : B(n, d) {
+//         cout << ch;
+//     }
+// };
+
+// int main() {
+//     C c(5, 4.3, 'R');
+//     return 0;
+// }
+
+
+#include <iostream>
+using namespace std;
+class Parent {
+protected:
+    int x;
+public:
+    Parent() : x(26) {}
+    int getValue() { return x; }
+};
+
+class Child1 : public Parent {
+public:
+    int getValue() { return x + 13; }
+};
+
+class Child2 : public Parent {
+public:
+    int getValue() { return x * 7; }
+};
+
+int main() {
+    Child1 obj1;
+    Child2 obj2;
+    cout << obj1.getValue() << obj2.getValue();
+    return 0;
+}
