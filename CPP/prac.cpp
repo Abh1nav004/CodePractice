@@ -330,62 +330,158 @@
 // }
 
 
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
 
-struct TreeNode {
-    int val;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-};
+// struct TreeNode {
+//     int val;
+//     TreeNode* left;
+//     TreeNode* right;
+//     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+// };
 
-void postorderTraversal(TreeNode* root, std::vector<int>& result) {
-    if (root) {
-        postorderTraversal(root->left, result);
-        postorderTraversal(root->right, result);
-        result.push_back(root->val);
-    }
-}
+// void postorderTraversal(TreeNode* root, std::vector<int>& result) {
+//     if (root) {
+//         postorderTraversal(root->left, result);
+//         postorderTraversal(root->right, result);
+//         result.push_back(root->val);
+//     }
+// }
 
-int main() {
-    int n;
-    std::cin >> n;
-    std::vector<int> arr(n);
-    for (int i = 0; i < n; ++i) {
-        std::cin >> arr[i];
-    }
+// int main() {
+//     int n;
+//     std::cin >> n;
+//     std::vector<int> arr(n);
+//     for (int i = 0; i < n; ++i) {
+//         std::cin >> arr[i];
+//     }
 
-    TreeNode* root = NULL;
-    std::vector<TreeNode*> nodes(n);
+//     TreeNode* root = NULL;
+//     std::vector<TreeNode*> nodes(n);
 
-    // Construct the binary tree
-    for (int i = 0; i < n; ++i) {
-        if (arr[i] != -1) {
-            nodes[i] = new TreeNode(arr[i]);
-            if (i > 0) {
-                int parent = (i - 1) / 2;
-                if (i % 2 == 1) {
-                    nodes[parent]->left = nodes[i];
-                } else {
-                    nodes[parent]->right = nodes[i];
-                }
-            } else {
-                root = nodes[i];
-            }
-        }
-    }
+//     // Construct the binary tree
+//     for (int i = 0; i < n; ++i) {
+//         if (arr[i] != -1) {
+//             nodes[i] = new TreeNode(arr[i]);
+//             if (i > 0) {
+//                 int parent = (i - 1) / 2;
+//                 if (i % 2 == 1) {
+//                     nodes[parent]->left = nodes[i];
+//                 } else {
+//                     nodes[parent]->right = nodes[i];
+//                 }
+//             } else {
+//                 root = nodes[i];
+//             }
+//         }
+//     }
 
-    std::vector<int> postorder;
-    postorderTraversal(root, postorder);
+//     std::vector<int> postorder;
+//     postorderTraversal(root, postorder);
 
-    for (int i = 0; i < n; ++i) {
-        std::cout << postorder[i];
-        if (i < n - 1) {
-            std::cout << " ";
-        }
-    }
-    std::cout << std::endl;
+//     for (int i = 0; i < n; ++i) {
+//         std::cout << postorder[i];
+//         if (i < n - 1) {
+//             std::cout << " ";
+//         }
+//     }
+//     std::cout << std::endl;
 
-    return 0;
-}
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+// class Matrix { public:
+// int value;
+// Matrix(int val): value(val) {}
+// Matrix operator+(Matrix& other) {
+// return Matrix(value + other.value);
+// }
+// };
+// int main() {
+// Matrix m1(5);
+// Matrix m2(10);
+// Matrix result = m1 + m2;
+// cout << result.value;
+// return 0; }
+
+
+// #include <iostream>
+
+// class Box {
+// public:
+//     int length, width, height;
+//     Box(int l, int w, int h) : length(l), width(w), height(h) {}
+//     // Binary operator overloading goes here
+// };
+
+// int main() {
+//     Box box1(1, 2, 3);
+//     Box box2(4, 5, 6);
+//     Box result = box1 _______ box2;
+//     std::cout << result.length << ", " << result.width << ", " << result.height;
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+
+// class Distance {
+// public:
+//     int meters;
+//     Distance(int m) : meters(m) {}
+//     operator double() {
+//         return meters / 1000.0;
+//     }
+// };
+
+// int main() {
+//     Distance d(5000);
+//     double result = d;
+//     cout << result;
+//     return 0;
+// }
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Product {
+// public:
+//     int price;
+//     Product(int p) : price(p) {}
+//     operator bool() {
+//         return price > 0;
+//     }
+// };
+
+// int main() {
+//     Product prod(150);
+//     bool result = prod;
+//     cout << result;
+//     return 0;
+// }
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Time {
+// public:
+//     int minutes;
+//     Time(int m) : minutes(m) {}
+//     operator string() {
+//         return to_string(minutes+78) + " mins";
+//     }
+// };
+
+// int main() {
+//     Time t(120);
+//     string result = t;
+//     cout << result;
+//     return 0;
+// }
