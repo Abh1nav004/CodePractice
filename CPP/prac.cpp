@@ -699,29 +699,206 @@
 // }
 
 
+// #include <iostream>
+// using namespace std;
+// class Parent {
+// protected:
+//     int x;
+// public:
+//     Parent() : x(26) {}
+//     int getValue() { return x; }
+// };
+
+// class Child1 : public Parent {
+// public:
+//     int getValue() { return x + 13; }
+// };
+
+// class Child2 : public Parent {
+// public:
+//     int getValue() { return x * 7; }
+// };
+
+// int main() {
+//     Child1 obj1;
+//     Child2 obj2;
+//     cout << obj1.getValue() << obj2.getValue();
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// class Base {
+// public:
+//     virtual void display() {
+//         std::cout << "Jawaharlal Nehru" << std::endl;
+//     }
+// };
+
+// class Derived : public Base {
+// public:
+//     void display() {
+//         std::cout << "Mahatma Gandhi" << std::endl;
+//     }
+// };
+
+// int main() {
+//     Derived obj;
+//     Base& ref = obj;
+//     ref.display();
+//     return 0;
+// }
+
+// #include <iostream>
+
+// class Base {
+// public:
+//     void display() {
+//         std::cout << "Base Display" << std::endl;
+//     }
+// };
+
+// class Derived : public Base {
+// public:
+//     void display() {
+//         std::cout << "Derived Display" << std::endl;
+//     }
+// };
+// int main() {
+//     Derived obj;
+//     obj.display();
+//     return 0;
+// }
+
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Animal {
+// public:
+//     int weight;
+//     Animal() { weight = 100; }
+//     virtual int calculateFoodRequired() { return weight / 2; }
+// };
+
+// class Herbivore : virtual public Animal {
+// public:
+//     int dailyIntake;
+//     Herbivore() { dailyIntake = 5; }
+//     int calculateFoodRequired() override { return Animal::calculateFoodRequired() * dailyIntake; }
+// };
+
+// int main() {
+//     Herbivore obj; 
+//     cout << obj.calculateFoodRequired();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Base {
+// public:
+//     string name;
+//     Base() { name = "Spring"; }
+//     virtual string operation() { return name + " Day!"; }
+// };
+
+// class Derived : virtual public Base {
+// public:
+//     string suffix;
+//     Derived() { suffix = ", September"; }
+//     string operation() override { return Base::operation() + suffix; }
+// };
+
+// int main() {
+//     Base* obj = new Derived();
+//     cout << obj->operation();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class A {
+// public:
+//     float x;
+//     A() { x = 2.5; cout << x << " "; }
+//     ~A() { x += 1.5; cout << x << " "; }
+// };
+
+// class B : public A {
+// public:
+//     float y;
+//     B() { y = 3.2; cout << y << " "; }
+//     ~B() { y += 2.3; cout << y << " "; }
+// };
+
+// int main() {
+//     B obj;
+//     cout << obj.x + obj.y << endl;
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// class Base {
+// public:
+//     Base() {
+//         std::cout << "Base constructor called." << std::endl;
+//     }
+
+//     ~Base() {
+//         std::cout << "Base destructor called." << std::endl;
+//     }
+// };
+
+// class Derived : public Base {
+// public:
+//     Derived() {
+//         std::cout << "Derived constructor called." << std::endl;
+//     }
+
+//     ~Derived() {
+//         std::cout << "Derived destructor called." << std::endl;
+//     }
+// };
+
+// int main() {
+//     Base* b = new Derived();
+//     delete b;
+//     return 0;
+// }
+
+
+
 #include <iostream>
 using namespace std;
-class Parent {
-protected:
-    int x;
+
+class Base {
 public:
-    Parent() : x(26) {}
-    int getValue() { return x; }
+    char c;
+    Base() { c = 'A'; }
+    virtual char operation() { return c + 3; }
 };
 
-class Child1 : public Parent {
+class Derived : virtual public Base {
 public:
-    int getValue() { return x + 13; }
-};
-
-class Child2 : public Parent {
-public:
-    int getValue() { return x * 7; }
+    char suffix;
+    Derived() { suffix = 'Z'; }
+    char operation() override {
+        char result = Base::operation() - suffix;
+        return (result >= 'A' && result <= 'Z') ? result : 'A'; 
+    }
 };
 
 int main() {
-    Child1 obj1;
-    Child2 obj2;
-    cout << obj1.getValue() << obj2.getValue();
+    Base* obj = new Derived();
+    cout << obj->operation();
     return 0;
 }
