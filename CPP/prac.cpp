@@ -877,28 +877,142 @@
 
 
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Base {
-public:
-    char c;
-    Base() { c = 'A'; }
-    virtual char operation() { return c + 3; }
-};
+// class Base {
+// public:
+//     char c;
+//     Base() { c = 'A'; }
+//     virtual char operation() { return c + 3; }
+// };
 
-class Derived : virtual public Base {
-public:
-    char suffix;
-    Derived() { suffix = 'Z'; }
-    char operation() override {
-        char result = Base::operation() - suffix;
-        return (result >= 'A' && result <= 'Z') ? result : 'A'; 
-    }
-};
+// class Derived : virtual public Base {
+// public:
+//     char suffix;
+//     Derived() { suffix = 'Z'; }
+//     char operation() override {
+//         char result = Base::operation() - suffix;
+//         return (result >= 'A' && result <= 'Z') ? result : 'A'; 
+//     }
+// };
 
-int main() {
-    Base* obj = new Derived();
-    cout << obj->operation();
-    return 0;
-}
+// int main() {
+//     Base* obj = new Derived();
+//     cout << obj->operation();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <string>
+
+// class partA {
+// public:
+//     partA(const std::string& name, const std::string& pan) : name(name), pan(pan) {
+//         std::cout << "Creating partA" << std::endl;
+//     }
+
+//     ~partA() {
+//         std::cout << "Deleting partA" << std::endl;
+//     }
+
+//     const std::string& getName() const {
+//         return name;
+//     }
+
+//     const std::string& getPan() const {
+//         return pan;
+//     }
+
+// private:
+//     std::string name;
+//     std::string pan;
+// };
+
+// class partB : public partA {
+// public:
+//     partB(const std::string& name, const std::string& pan, double grossSalary, double otherIncome)
+//         : partA(name, pan), grossSalary(grossSalary), otherIncome(otherIncome) {
+//         std::cout << "Creating partB" << std::endl;
+//     }
+
+//     ~partB() {
+//         std::cout << "Deleting partB" << std::endl;
+//     }
+
+//     double calculateTaxableIncome() const {
+//         return grossSalary + otherIncome;
+//     }
+
+//     double getGrossSalary() const {
+//         return grossSalary;
+//     }
+
+//     double getOtherIncome() const {
+//         return otherIncome;
+//     }
+
+// private:
+//     double grossSalary;
+//     double otherIncome;
+// };
+
+// class partC : public partA {
+// public:
+//     partC(const std::string& name, const std::string& pan, double deductions)
+//         : partA(name, pan), deductions(deductions) {
+//         std::cout << "Creating partC" << std::endl;
+//     }
+
+//     ~partC() {
+//         std::cout << "Deleting partC" << std::endl;
+//     }
+
+//     double getDeductions() const {
+//         return deductions;
+//     }
+
+// private:
+//     double deductions;
+// };
+
+// class taxComp : public partB, public partC {
+// public:
+//     taxComp(const std::string& name, const std::string& pan, double grossSalary, double otherIncome, double deductions)
+//         : partB(name, pan, grossSalary, otherIncome), partC(name, pan, deductions) {
+//         std::cout << "Creating taxComp" << std::endl;
+//     }
+
+//     ~taxComp() {
+//         std::cout << "Deleting taxComp" << std::endl;
+//     }
+
+//     double calculateTaxPayable() const {
+//         double taxableIncome = partB::calculateTaxableIncome();
+//         double tax = 0.3 * taxableIncome - partC::getDeductions();
+//         return (tax > 0) ? tax : 0;
+//     }
+// };
+
+// int main() {
+//     std::string name, pan;
+//     double grossSalary, otherIncome, deductions;
+
+//     std::cin >> name;
+//     std::cin >> pan;
+//     std::cin >> grossSalary;
+//     std::cin >> otherIncome;
+//     std::cin >> deductions;
+
+//     taxComp taxForm(name, pan, grossSalary, otherIncome, deductions);
+
+//     std::cout << "Account Holder Name: " << taxForm.getName() << std::endl;
+//     std::cout << "PAN: " << taxForm.getPan() << std::endl;
+//     std::cout << "Gross Salary: " << taxForm.getGrossSalary() << std::endl;
+//     std::cout << "Income from Other Sources: " << taxForm.getOtherIncome() << std::endl;
+//     std::cout << "Deductions: " << taxForm.getDeductions() << std::endl;
+
+//     double taxableIncome = taxForm.calculateTaxableIncome();
+//     double taxPayable = taxForm.calculateTaxPayable();
+//     std::cout << "Taxable Income (computed): " << taxableIncome
