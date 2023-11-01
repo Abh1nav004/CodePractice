@@ -1,3 +1,7 @@
+// lseek(fn, 0L, SEEK_CUR) determines the current file position without changing it.
+
+// strstr is used to search a given substring in the main string and returns the pointer to the first occurrence of the given substring in the main string.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -67,3 +71,68 @@ int main() {
     printf("File modified successfully.\n");
     return 0;
 }
+ 
+
+
+
+
+
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <pthread.h>
+// #include <semaphore.h>
+// #include <unistd.h>
+
+// #define NUM_THREADS 5
+// #define INITIAL_SEM_VALUE 2
+// #define ACCESS_TIME 2
+
+
+// sem_t semaphore;
+
+// void* resource_access(void* thread_id) {
+//     int tid = ((int)thread_id);
+
+    
+//     sem_wait(&semaphore);
+//     printf("Thread %d is accessing the resource.\n", tid);
+
+    
+//     sleep(ACCESS_TIME);
+
+   
+//     sem_post(&semaphore);
+//     printf("Thread %d has finished accessing the resource.\n", tid);
+
+//     pthread_exit(NULL);
+// }
+
+// int main() {
+//     int i;
+//     int thread_ids[NUM_THREADS];
+//     pthread_t threads[NUM_THREADS];
+
+    
+//     if (sem_init(&semaphore, 0, INITIAL_SEM_VALUE) != 0) {
+//         perror("Semaphore initialization failed");
+//         exit(1);
+//     }
+
+    
+//     for (i = 0; i < NUM_THREADS; i++) {
+//         thread_ids[i] = i;
+//         if (pthread_create(&threads[i], NULL, resource_access, &thread_ids[i]) != 0) {
+//             perror("Thread creation failed");
+//             exit(1);
+//         }
+//     }
+
+    
+//     for (i = 0; i < NUM_THREADS; i++) {
+//         pthread_join(threads[i], NULL);
+//     }
+
+//      sem_destroy(&semaphore);
+
+//     return 0;
+// }
