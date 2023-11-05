@@ -1097,30 +1097,444 @@
 // }
 
 
+// #include <iostream>
+// #include <cstring>
+
+// class School {
+// public:
+//     School() { name = new char[15]; }
+//     virtual ~School() { delete[] name; }
+
+//     void SetName(const char* newName) {
+//         name = new char[strlen(newName) + 1];
+//         strcpy(name, newName);
+//     }
+
+//     void DisplayName() {
+//         std::cout << "School Name: " << name << std::endl;
+//     }
+
+// private:
+//     char* name;
+// };
+
+// int main() {
+//     School* school = new School();
+//     school->SetName("ABC School");
+//     school->DisplayName();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <cstring>
+
+// class Music {
+// public:
+//     Music() : title(new char[20]) {}
+//     virtual ~Music() { delete[] title; }
+
+//     void SetTitle(const char* newTitle) {
+//         title = new char[strlen(newTitle) + 1];
+//         strcpy(title, newTitle);
+//     }
+
+//     void DisplayTitle() {
+//         std::cout << "Title: " << title;
+//     }
+
+// private:
+//     char* title;
+// };
+
+// int main() {
+//     Music music;
+//     music.SetTitle("Symphony No. 9");
+//     music.DisplayTitle();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <cstring>
+
+// class Animal {
+// public:
+//     Animal() { name = new char[20]; }
+//     virtual ~Animal() { delete[] name; }
+
+//     void SetName(const char* newName) {
+//         delete[] name;
+//         name = new char[strlen(newName) + 1];
+//         strcpy(name, newName);
+//     }
+
+//     void DisplayName() const {
+//         std::cout << "Animal: " << name << std::endl;
+//     }
+
+// private:
+//     char* name;
+// };
+
+// int main() {
+//     Animal* animal = new Animal();
+//     animal->SetName("Tiger");
+//     animal->DisplayName();
+//     delete animal;
+//     return 0;
+// }
+
+
+
+// #include <iostream>
+// #include <bits/stdc++.h>
+
+// class City {
+// public:
+//     City() { name = new char[20]; }
+//     ~City() { delete[] name; }
+
+//     void SetName(const char* newName) {
+//         name = new char[strlen(newName) + 1];
+//         strcpy(name, newName);
+//     }
+
+//     void DisplayName() {
+//         std::cout << "City: " << name << std::endl;
+//     }
+
+// private:
+//     char* name;
+// };
+
+// int main() {
+//     City city;
+//     city.SetName("Metropolis");
+//     city.DisplayName();
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <cstring>
+
+// class House {
+// public:
+//     House() : address(new char[30]) {}
+//     virtual ~House() { delete[] address; }
+
+//     void SetAddress(const char* newAddress) {
+//         strcpy(address, newAddress);
+//     }
+
+//     void DisplayAddress() {
+//         std::cout << "Address: " << address;
+//     }
+
+// private:
+//     char* address;
+// };
+
+// int main() {
+//     House house;
+//     house.SetAddress("123 Main Street");
+//     house.DisplayAddress();
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// class Shape {
+// public:
+//     virtual ~Shape() { std::cout << "Shape destructor\n"; }
+// };
+
+// class Circle : public Shape {
+// public:
+//     ~Circle() { std::cout << "Circle destructor\n"; }
+// };
+
+// int main() {
+//     Shape* shape = new Circle();
+//     delete shape;
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Animal {
+// public:
+//     virtual void makeSound() const = 0;
+// };
+
+// class Dog : public Animal {
+// public:
+//     void makeSound() const override {
+//         cout << "Woof Woof!" << endl;
+//     }
+// };
+
+// class Cat : public Animal {
+// public:
+//     void makeSound() const override {
+//         cout << "Meow!" << endl;
+//     }
+// };
+
+
+// int main() {
+//     Animal* animal1 = new Dog();
+//     Animal* animal2 = new Cat();
+
+//     animal1->makeSound();
+//     animal2->makeSound();
+
+//     return 0;
+// }
+
+// #include <iostream>
+
+// class A {
+// public:
+//     void show(int x) { std::cout << "A: " << x << std::endl; }
+// };
+
+// class B : public A {
+// };
+
+// int main() {
+//     B b;
+//     b.show(5);
+//     return 0;
+// }
+
+
+// #include <iostream>
+// using namespace std;
+
+// class Employee {
+// public:
+//     virtual void showSalary() const {
+//         cout << "Salary: $5000" << endl;
+//     }
+// };
+
+// class Manager : public Employee {
+// public:
+//     void showSalary() const override {
+//         cout << "Salary: $8000" << endl;
+//     }
+// };
+
+// int main() {
+//     Employee* empPtr1 = new Manager();
+//     empPtr1->showSalary();
+
+//     Employee* empPtr2 = new Employee();
+//     empPtr2->showSalary();
+
+//     delete empPtr1;
+//     delete empPtr2;
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// class Animal {
+// public:
+//     virtual void makeSound() { std::cout << "Animal makes a sound." << std::endl; }
+// };
+
+// class Dog : public Animal {
+// public:
+//     void makeSound() override { std::cout << "Dog barks." << std::endl; }
+// };
+
+// int main() {
+//     Animal* animals[2];
+//     animals[0] = new Animal;
+//     animals[1] = new Dog;
+//     for (int i = 0; i < 2; ++i) {
+//         animals[i]->makeSound();
+//         delete animals[i];
+//     }
+//     return 0;
+// }
+
+
 #include <iostream>
-#include <cstring>
 
-class School {
+#include <string>
+
+
+
+
+class Fruit {
+
 public:
-    School() { name = new char[15]; }
-    virtual ~School() { delete[] name; }
 
-    void SetName(const char* newName) {
-        name = new char[strlen(newName) + 1];
-        strcpy(name, newName);
-    }
+virtual std::string getTaste() {
 
-    void DisplayName() {
-        std::cout << "School Name: " << name << std::endl;
-    }
+return "Generic fruit taste";
 
-private:
-    char* name;
+}
+
 };
 
-int main() {
-    School* school = new School();
-    school->SetName("ABC School");
-    school->DisplayName();
-    return 0;
+
+
+
+class Apple : public Fruit {
+
+public:
+
+std::string getTaste() override {
+
+return "Sweet";
+
 }
+
+};
+
+
+
+
+class Banana : public Fruit {
+
+public:
+
+std::string getTaste() override {
+
+return "Creamy";
+
+}
+
+};
+
+
+
+
+class Orange : public Fruit {
+
+public:
+
+std::string getTaste() override {
+
+return "Tangy";
+
+}
+
+};
+
+
+
+
+class Grape : public Fruit {
+
+public:
+
+std::string getTaste() override {
+
+return "Juicy";
+
+}
+
+};
+
+
+
+
+class Pineapple : public Fruit {
+
+public:
+
+std::string getTaste() override {
+
+return "Sweet and Sour";
+
+}
+
+};
+
+
+
+
+int main() {
+
+int choice;
+
+Fruit* fruit;
+
+
+
+
+//std::cout << "Choose a fruit (1 = Apple, 2 = Banana, 3 = Orange, 4 = Grape, 5 = Pineapple): ";
+
+std::cin >> choice;
+
+
+
+
+switch (choice) {
+
+case 1:
+
+fruit = new Apple();
+
+break;
+
+case 2:
+
+fruit = new Banana();
+
+break;
+
+case 3:
+
+fruit = new Orange();
+
+break;
+
+case 4:
+
+fruit = new Grape();
+
+break;
+
+case 5:
+
+fruit = new Pineapple();
+
+break;
+
+default:
+
+std::cout << "Invalid choice, defaulting to generic fruit." << std::endl;
+
+fruit = new Fruit();
+
+break;
+
+}
+
+
+
+
+std::cout << "The taste of the fruit is: " << fruit->getTaste() << std::endl;
+
+
+
+
+delete fruit;
+
+
+
+
+return 0;
+
+} 
