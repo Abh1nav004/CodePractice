@@ -1016,3 +1016,111 @@
 //     double taxableIncome = taxForm.calculateTaxableIncome();
 //     double taxPayable = taxForm.calculateTaxPayable();
 //     std::cout << "Taxable Income (computed): " << taxableIncome
+
+
+
+// #include <iostream>
+
+// int main() {
+//     int* ptr = new int[5];
+//     for (int i = 0; i < 5; i++) {
+//         ptr[i] = i + 1;
+//     }
+//     int sum = 0;
+//     for (int i = 0; i < 6; i++) {
+//         sum += ptr[i];
+//     }
+//     std::cout << sum;
+//     delete[] ptr;
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// int main() {
+//     int* ptr = new int(5);
+//     std::cout << *ptr << std::endl;
+//     delete ptr;
+//     std::cout << *ptr << std::endl;
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+// class Vector3D {
+// public:
+//     Vector3D(int x, int y, int z) : xCoord(x), yCoord(y), zCoord(z) {}
+//     int dotProduct(Vector3D& other) { return xCoord * other.xCoord + yCoord * other.yCoord + zCoord * other.zCoord; }
+// private:
+//     int xCoord, yCoord, zCoord;
+// };
+
+// int main() {
+//     Vector3D* v1 = new Vector3D(1, 2, 3);
+//     Vector3D* v2 = new Vector3D(4, 5, 6);
+//     int result = v1->dotProduct(*v2);
+//     delete v1;
+//     delete v2;
+//     std::cout << result;
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <iomanip>
+// using namespace std;
+// class Triangle {
+// public:
+//     Triangle(double b, double h) : base(b), height(h) {}
+//     double getArea() { return 0.5 * base * height; }
+// private:
+//     double base, height;
+// };
+
+// int main() {
+//     Triangle* t = new Triangle(4.0, 6.0);
+//     double result = t->getArea();
+//     delete t;
+//     std::cout << fixed << setprecision(1) << result;
+//     return 0;
+// }
+
+
+// #include <iostream>
+
+// int main() {
+//     int* ptr = new int[5]();
+//     std::cout << ptr[3];
+//     delete[] ptr;
+//     return 0;
+// }
+
+
+#include <iostream>
+#include <cstring>
+
+class School {
+public:
+    School() { name = new char[15]; }
+    virtual ~School() { delete[] name; }
+
+    void SetName(const char* newName) {
+        name = new char[strlen(newName) + 1];
+        strcpy(name, newName);
+    }
+
+    void DisplayName() {
+        std::cout << "School Name: " << name << std::endl;
+    }
+
+private:
+    char* name;
+};
+
+int main() {
+    School* school = new School();
+    school->SetName("ABC School");
+    school->DisplayName();
+    return 0;
+}
