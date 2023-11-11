@@ -1367,174 +1367,188 @@
 // }
 
 
-#include <iostream>
+// #include <iostream>
 
-#include <string>
+// #include <string>
 
 
 
 
-class Fruit {
+// class Fruit {
 
-public:
+// public:
 
-virtual std::string getTaste() {
+// virtual std::string getTaste() {
 
-return "Generic fruit taste";
+// return "Generic fruit taste";
 
-}
+// }
 
-};
+// };
 
 
 
 
-class Apple : public Fruit {
+// class Apple : public Fruit {
 
-public:
+// public:
 
-std::string getTaste() override {
+// std::string getTaste() override {
 
-return "Sweet";
+// return "Sweet";
 
-}
+// }
 
-};
+// };
 
 
 
 
-class Banana : public Fruit {
+// class Banana : public Fruit {
 
-public:
+// public:
 
-std::string getTaste() override {
+// std::string getTaste() override {
 
-return "Creamy";
+// return "Creamy";
 
-}
+// }
 
-};
+// };
 
 
 
 
-class Orange : public Fruit {
+// class Orange : public Fruit {
 
-public:
+// public:
 
-std::string getTaste() override {
+// std::string getTaste() override {
 
-return "Tangy";
+// return "Tangy";
 
-}
+// }
 
-};
+// };
 
 
 
 
-class Grape : public Fruit {
+// class Grape : public Fruit {
 
-public:
+// public:
 
-std::string getTaste() override {
+// std::string getTaste() override {
 
-return "Juicy";
+// return "Juicy";
 
-}
+// }
 
-};
+// };
 
 
 
 
-class Pineapple : public Fruit {
+// class Pineapple : public Fruit {
 
-public:
+// public:
 
-std::string getTaste() override {
+// std::string getTaste() override {
 
-return "Sweet and Sour";
+// return "Sweet and Sour";
 
-}
+// }
 
-};
+// };
 
 
 
 
-int main() {
+// int main() {
 
-int choice;
+// int choice;
 
-Fruit* fruit;
+// Fruit* fruit;
 
 
 
 
-//std::cout << "Choose a fruit (1 = Apple, 2 = Banana, 3 = Orange, 4 = Grape, 5 = Pineapple): ";
+// //std::cout << "Choose a fruit (1 = Apple, 2 = Banana, 3 = Orange, 4 = Grape, 5 = Pineapple): ";
 
-std::cin >> choice;
+// std::cin >> choice;
 
 
 
 
-switch (choice) {
+// switch (choice) {
 
-case 1:
+// case 1:
 
-fruit = new Apple();
+// fruit = new Apple();
 
-break;
+// break;
 
-case 2:
+// case 2:
 
-fruit = new Banana();
+// fruit = new Banana();
 
-break;
+// break;
 
-case 3:
+// case 3:
 
-fruit = new Orange();
+// fruit = new Orange();
 
-break;
+// break;
 
-case 4:
+// case 4:
 
-fruit = new Grape();
+// fruit = new Grape();
 
-break;
+// break;
 
-case 5:
+// case 5:
 
-fruit = new Pineapple();
+// fruit = new Pineapple();
 
-break;
+// break;
 
-default:
+// default:
 
-std::cout << "Invalid choice, defaulting to generic fruit." << std::endl;
+// std::cout << "Invalid choice, defaulting to generic fruit." << std::endl;
 
-fruit = new Fruit();
+// fruit = new Fruit();
 
-break;
+// break;
 
-}
+// }
 
 
 
 
-std::cout << "The taste of the fruit is: " << fruit->getTaste() << std::endl;
+// std::cout << "The taste of the fruit is: " << fruit->getTaste() << std::endl;
 
 
 
 
-delete fruit;
+// delete fruit;
 
 
 
 
-return 0;
+// return 0;
 
-} 
+// } 
+
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int a=1;
+//     char b=char(a);
+
+//     cout<<"Size of b is "<<sizeof(b);
+    
+//     return 0;
+// }
+
