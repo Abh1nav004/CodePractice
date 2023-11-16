@@ -172,29 +172,58 @@
 // }
 
 
-#include <vector>
+// #include <vector>
+// #include <iostream>
+// #include <typeinfo>
+// #include <stdexcept>
+
+// using namespace std;
+
+// int main() {
+//     vector<int> vec;
+//     vec.push_back(10);
+//     int i = vec[100];
+
+//     try {
+//         i = vec[0];
+//         cout << i << endl;
+//     }
+//     catch (exception& e) {
+//         cout << "Caught: " << e.what() << endl;
+//         cout << "Type: " << typeid(e).name() << endl;
+//     }
+//     catch (...) {
+//         cout << "Unknown exception: " << endl;
+//     }
+
+//     return 0;
+// }
+
+
 #include <iostream>
-#include <typeinfo>
-#include <stdexcept>
 
 using namespace std;
 
-int main() {
-    vector<int> vec;
-    vec.push_back(10);
-    int i = vec[100];
+struct node
+{
+    int data;
+    node *next;
+};
 
-    try {
-        i = vec[0];
-        cout << i << endl;
+class linked_list
+{
+private:
+    node *head,*tail;
+public:
+    linked_list()
+    {
+        head = NULL;
+        tail = NULL;
     }
-    catch (exception& e) {
-        cout << "Caught: " << e.what() << endl;
-        cout << "Type: " << typeid(e).name() << endl;
-    }
-    catch (...) {
-        cout << "Unknown exception: " << endl;
-    }
+};
 
+int main()
+{
+    linked_list a;
     return 0;
 }

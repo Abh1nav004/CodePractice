@@ -137,28 +137,76 @@
 //     return 0;
 // }
 
-#include <stdio.h>
-#include <fcntl.h>
-#include <unistd.h>
-#include <sys/types.h>
+// #include <stdio.h>
+// #include <fcntl.h>
+// #include <unistd.h>
+// #include <sys/types.h>
 
-int main(){
-    int fd;
-    char buf[10];
-    fd = open("sample.txt",O_RDONLY);
-    if(fd<0){
-        perror("open");
-        return 1;
-    }
-    if (read(fd,buf,10)!= 10)
-    {
-        perror("read");
-        return 1;
-    }
-    buf[10]='\0';
-    printf("Read: %s\n",buf);
-    close(fd);
+// int main(){
+//     int fd;
+//     char buf[10];
+//     fd = open("sample.txt",O_RDONLY);
+//     if(fd<0){
+//         perror("open");
+//         return 1;
+//     }
+//     if (read(fd,buf,10)!= 10)
+//     {
+//         perror("read");
+//         return 1;
+//     }
+//     buf[10]='\0';
+//     printf("Read: %s\n",buf);
+//     close(fd);
     
     
-    return 0;
-}
+//     return 0;
+// }
+                                                                                               
+// #include<stdio.h>
+// #include<unistd.h>
+// #include<pthread.h>
+
+// void *func1(){
+//         int n;
+//         int fact=1;
+//         scanf("Enter num: ",&n);
+
+//         for(int i=0;i<n;i++){
+//                 fact=fact*i;
+//         }
+
+//         printf("%d",&fact);
+// }
+
+// void *func2(){
+//         int n;
+//         scanf("Enter num: ",&n);
+
+//         if(n%2==0){
+//                 printf("Even");
+//         }
+//         else{
+//                 printf("Odd");
+//         }
+// }
+
+// int main(){
+//         pthread_t thread1,thread2;
+
+//         pthread_create(&thread1,NULL,func1(),NULL);
+//         pthread_create(&thread2,NULL,func2(),NULL);
+
+//         pthread_join(thread1,NULL);
+//         pthread_join(thread2,NULL);
+
+//         return 0;
+        
+
+// }
+
+
+
+
+
+
